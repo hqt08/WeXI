@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{82251CBE-1C7D-FB33-8E84-18471E5DCDAA}") = "WeXI", "Assembly-CSharp-firstpass.csproj", "{52B2CC64-29DE-60C5-38ED-826431ACE1BB}"
+EndProject
 Project("{82251CBE-1C7D-FB33-8E84-18471E5DCDAA}") = "WeXI", "Assembly-CSharp.csproj", "{C9B8F0FE-5F11-9E42-551A-8C15D78174CE}"
 EndProject
 Global
@@ -9,6 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52B2CC64-29DE-60C5-38ED-826431ACE1BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B2CC64-29DE-60C5-38ED-826431ACE1BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B2CC64-29DE-60C5-38ED-826431ACE1BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B2CC64-29DE-60C5-38ED-826431ACE1BB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C9B8F0FE-5F11-9E42-551A-8C15D78174CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C9B8F0FE-5F11-9E42-551A-8C15D78174CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9B8F0FE-5F11-9E42-551A-8C15D78174CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -17,7 +23,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
+						GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
@@ -35,4 +41,5 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
+
 EndGlobal
