@@ -15,6 +15,7 @@ public class gameManager : MonoBehaviour {
 
 	}
 
+	//Can be called from any script to increase the score and update it inside the unity GUI...
 	public void increaseScore(int tempScore)
 	{
 		score += tempScore;

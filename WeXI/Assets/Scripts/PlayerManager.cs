@@ -8,32 +8,62 @@ public class PlayerManager : MonoBehaviour {
 	private bool isAllowedToJump;
 	public float blinkingTime;
 	private gameManager manager;
+	private bool hasControl;
 
+
+	public bool isTest;
 	// Use this for initialization
 	void Start () {
 
+		hasControl = false;
 		isAllowedToJump = true;
 		manager = GameObject.Find("Game Manager").GetComponent<gameManager>();
 
+		//Have to keep gravity scale at 0 so the body does not start counting velocity.. which is a condition for dying(falling off)
+		rigidbody2D.gravityScale = 0.0f;
+
+		//The "istest" boolean allows us to test the player from anywhere on the screen.. without the "start" animation of the character..
+		if(isTest == false)
+		{
+			//Starting animation of the player which moves the player at start position
+			iTween.MoveTo(gameObject,iTween.Hash("delay",0.5f,"x",transform.position.x - 3.0f,"y",transform.position.y + 3.0f,"time",2.0f,"easetype",iTween.EaseType.linear,"oncomplete","giveControl"));
+		}
+		else
+		{
+			giveControl();
+		}
+
+	}
+
+	void giveControl()
+	{
+		rigidbody2D.gravityScale = 1.0f;
+		hasControl = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		// Moves player left, right, up, down. No collision.
-		float x = Input.GetAxis("Horizontal") * Time.smoothDeltaTime * speed;
-		//float y = Input.GetAxis("Vertical") * Time.smoothDeltaTime * speed;
-		transform.Translate(x,0,0,Space.Self);
-
-		if(Input.GetButtonDown("Jump") && isAllowedToJump == true)
+		if(hasControl == true)
 		{
-			isAllowedToJump = false;
-			jumpFunction();
-		}
+			// Moves player left, right, up, down. No collision.
+			float x = Input.GetAxis("Horizontal") * Time.smoothDeltaTime * speed;
+			//float y = Input.GetAxis("Vertical") * Time.smoothDeltaTime * speed;
+			transform.Translate(x,0,0,Space.Self);
 
-		if(rigidbody2D.velocity.y < -15.0f)
-		{
-			dieFunction();
+			if(Input.GetButtonDown("Jump") && isAllowedToJump == true)
+			{
+				isAllowedToJump = false;
+				jumpFunction();
+			}
+
+			if(rigidbody2D.velocity.y < -15.0f)
+			{
+				Debug.Log("DIE Reason : Fall off");
+				dieFunction();
+			}
+
+
 		}
 
 	}
@@ -46,6 +76,7 @@ public class PlayerManager : MonoBehaviour {
 
 	void dieFunction()
 	{
+		Debug.Log("Player DIE function called");
 		Application.LoadLevel(Application.loadedLevelName);
 
 	}
@@ -64,6 +95,7 @@ public class PlayerManager : MonoBehaviour {
 	{
 		if(other.gameObject.tag == "killTag")
 		{
+			Debug.Log("DIE Reason : Kill Tag");
 			dieFunction();
 		}
 		if(other.gameObject.tag == "jumpEnemyTag")
