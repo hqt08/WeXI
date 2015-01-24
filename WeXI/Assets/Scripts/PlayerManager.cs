@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour {
 		if(isTest == false)
 		{
 			//Starting animation of the player which moves the player at start position
-			iTween.MoveTo(gameObject,iTween.Hash("delay",0.5f,"x",transform.position.x - 3.0f,"y",transform.position.y + 3.0f,"time",2.0f,"easetype",iTween.EaseType.linear,"oncomplete","giveControl"));
+			iTween.MoveTo(gameObject,iTween.Hash("delay",0.5f,"x",transform.position.x - 2.0f,"y",transform.position.y + 3.0f,"time",1.0f,"easetype",iTween.EaseType.linear,"oncomplete","giveControl"));
 		}
 		else
 		{
