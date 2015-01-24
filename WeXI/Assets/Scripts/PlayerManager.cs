@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour {
 
 		isAllowedToJump = true;
 		manager = GameObject.Find("Game Manager").GetComponent<gameManager>();
+
 	}
 	
 	// Update is called once per frame

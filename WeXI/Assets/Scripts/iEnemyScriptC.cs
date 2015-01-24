@@ -10,7 +10,8 @@ public class iEnemyScriptC : MonoBehaviour {
 
 	public enum Direction{
 		Left,
-		Right
+		Right,
+		Up
 	};
 
 	public Direction direction;
@@ -27,9 +28,13 @@ public class iEnemyScriptC : MonoBehaviour {
 		if(direction == Direction.Left)
 		{
 			tempBullet.GetComponent<BulletScriptC>().direction = -1;
-		}else
+		}else if(direction == Direction.Right)
 		{
 			tempBullet.GetComponent<BulletScriptC>().direction = 1;
+		}
+		else if(direction == Direction.Up)
+		{
+			tempBullet.GetComponent<BulletScriptC>().direction = 0;
 		}
 
 		Invoke("startshooting",shootDelay);
