@@ -93,17 +93,17 @@ public class PlayerManager : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.gameObject.tag == "killTag")
-		{
-			Debug.Log("DIE Reason : Kill Tag");
-			dieFunction();
-		}
 		if(other.gameObject.tag == "jumpEnemyTag")
 		{
 			other.gameObject.transform.parent.GetComponent<iEnemyScriptC>().dieFunction();
 			jumpFunction();
 		}
-		if(other.gameObject.tag == "coin")
+		else if(other.gameObject.tag == "killTag")
+		{
+			Debug.Log("DIE Reason : Kill Tag");
+			dieFunction();
+		}
+		else if(other.gameObject.tag == "coin")
 		{
 			Destroy(other.gameObject);
 			manager.increaseScore(1);
