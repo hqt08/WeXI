@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour {
 	public float blinkingTime;
 	private gameManager manager;
 	private bool hasControl;
+	private AudioManager audio;
 
 
 	public bool isTest;
@@ -18,6 +19,7 @@ public class PlayerManager : MonoBehaviour {
 		hasControl = false;
 		isAllowedToJump = true;
 		manager = GameObject.Find("Game Manager").GetComponent<gameManager>();
+		audio = GameObject.Find("Game Manager").GetComponent<AudioManager>();
 
 		//Have to keep gravity scale at 0 so the body does not start counting velocity.. which is a condition for dying(falling off)
 		rigidbody2D.gravityScale = 0.0f;
@@ -63,7 +65,7 @@ public class PlayerManager : MonoBehaviour {
 			if(rigidbody2D.velocity.y < -15.0f)
 			{
 				Debug.Log("DIE Reason : Fall off");
-				dieFunction();
+				StartCoroutine( dieFunction());
 			}
 
 
@@ -77,9 +79,13 @@ public class PlayerManager : MonoBehaviour {
 		rigidbody2D.AddForce(new Vector2(0,1) * jumpForce);
 	}
 
-	void dieFunction()
+	IEnumerator dieFunction()
 	{
 		Debug.Log("Player DIE function called");
+		manager.setGameState (1);
+		if (!audio.die.isPlaying)
+			audio.die.Play ();
+		yield return new WaitForSeconds(.5f);
 		Application.LoadLevel(Application.loadedLevelName);
 
 	}
@@ -104,7 +110,7 @@ public class PlayerManager : MonoBehaviour {
 		else if(other.gameObject.tag == "killTag")
 		{
 			Debug.Log("DIE Reason : Kill Tag");
-			dieFunction();
+			StartCoroutine( dieFunction());
 		}
 		else if(other.gameObject.tag == "coin")
 		{
