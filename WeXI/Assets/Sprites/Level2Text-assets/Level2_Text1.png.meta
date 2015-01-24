@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: f146be0dcdab8974198d504d86648fb1
+guid: 0834e8a0fb74c4556b8f71bc75368f43
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Level1_Text23Modified_0
-    21300002: Level1_Text23Modified_1
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -27,16 +25,16 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
+  alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
@@ -44,26 +42,6 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: Level1_Text23Modified_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1302
-        height: 112
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Level1_Text23Modified_1
-      rect:
-        serializedVersion: 2
-        x: 1395
-        y: 0
-        width: 717
-        height: 112
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+    sprites: []
   spritePackingTag: 
   userData: 
