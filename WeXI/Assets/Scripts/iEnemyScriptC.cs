@@ -104,7 +104,9 @@ public class iEnemyScriptC : MonoBehaviour {
 
 	void destroyTheObject()
 	{
-		 Destroy(gameObject);
+		Destroy(gameObject);
+		Destroy(firstBullet);
+		Destroy(newBullet);
 	}
 	
 	// Update is called once per frame
