@@ -24,6 +24,9 @@ public class iEnemyScriptC : MonoBehaviour {
 	private Vector3 originalScale;
 	public GameObject firstBullet;
 	private GameObject newBullet;
+
+	public bool isGrowingBullet = false;
+	public Vector3 growScale;
 	// Use this for initialization
 	void Start () {
 
@@ -44,6 +47,9 @@ public class iEnemyScriptC : MonoBehaviour {
 			// This is just to first the first bullet...
 			bulletOriginalPosition = firstBullet.transform.position;
 			firstBullet.AddComponent<BulletScriptC>().speedOfBullet = bulletSpeed;
+			firstBullet.GetComponent<BulletScriptC>().isGrowingBullet = isGrowingBullet;
+			firstBullet.GetComponent<BulletScriptC>().growScale = growScale;
+
 			if(direction == Direction.Left)
 			{
 				firstBullet.GetComponent<BulletScriptC>().direction = -1;
@@ -56,6 +62,7 @@ public class iEnemyScriptC : MonoBehaviour {
 				firstBullet.GetComponent<BulletScriptC>().direction = 0;
 			}
 
+			Destroy(firstBullet,10.0f);
 			Invoke("startshooting",shootDelay);
 
 		}
@@ -73,6 +80,9 @@ public class iEnemyScriptC : MonoBehaviour {
 	public void fireBullet()
 	{
 		newBullet.AddComponent<BulletScriptC>().speedOfBullet = bulletSpeed;
+		newBullet.GetComponent<BulletScriptC>().isGrowingBullet = isGrowingBullet;
+		newBullet.GetComponent<BulletScriptC>().growScale = growScale;
+
 		if(direction == Direction.Left)
 		{
 			newBullet.GetComponent<BulletScriptC>().direction = -1;

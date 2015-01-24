@@ -8,9 +8,17 @@ public class BulletScriptC : MonoBehaviour {
 	[HideInInspector]
 	public int direction = -1;
 
+	public bool isGrowingBullet;
+	public Vector3 growScale;
 	// Use this for initialization
 	void Start () {
-	
+
+		if(isGrowingBullet)
+		{
+			iTween.ScaleTo(gameObject,iTween.Hash("scale",growScale,"time",3.0f));
+		}
+
+
 	}
 	
 	// Update is called once per frame
