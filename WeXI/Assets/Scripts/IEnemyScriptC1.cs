@@ -4,9 +4,13 @@ using System.Collections;
 public class IEnemyScriptC1 : MonoBehaviour {
 
 	public float height;
+	public AudioManager audio;
+	private bool hasPlayed;
 
 	// Use this for initialization
 	void Start () {
+		hasPlayed = false;
+		audio = GameObject.Find("Game Manager").GetComponent<AudioManager>();
 	
 	}
 	
@@ -18,6 +22,10 @@ public class IEnemyScriptC1 : MonoBehaviour {
 	public void triggerEnemy()
 	{
 		Debug.Log("triggered");
+		if(!hasPlayed){
+			audio.push.Play();
+			hasPlayed = true;
+		}
 		iTween.MoveTo(gameObject,iTween.Hash("y",transform.position.y + height, "time", 0.2f, "easetype",iTween.EaseType.linear,"oncomplete","startrolling"));
 	}
 
