@@ -4,11 +4,12 @@ using System.Collections;
 public class IEnemyScriptC2 : MonoBehaviour {
 
 	public float height;
+	private gameManager gameManager;
 	bool hit = false;
 
 	// Use this for initialization
 	void Start () {
-	
+		gameManager = GameObject.Find("Game Manager").GetComponent<gameManager>();
 	}
 	
 	// Update is called once per frame
@@ -37,6 +38,10 @@ public class IEnemyScriptC2 : MonoBehaviour {
 
 	public void dieFunction()
 	{
+		// Increment score
+		gameManager.increaseScore(20);
+		
+		// Die animation for big "I"
 		Debug.Log("Boss Defeated");
 		iTween.ScaleTo(gameObject,iTween.Hash("scale",new Vector3(0.01f,0.01f,0.01f),"time",0.5f,"oncomplete","destroyTheObject"));
 	}
