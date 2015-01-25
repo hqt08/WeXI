@@ -106,7 +106,14 @@ public class PlayerManager : MonoBehaviour {
 	{
 		if(other.gameObject.tag == "jumpEnemyTag")
 		{
-			other.gameObject.transform.parent.GetComponent<iEnemyScriptC>().dieFunction();
+            if (other.gameObject.transform.parent.GetComponent<iEnemyScriptC>())
+            {
+                other.gameObject.transform.parent.GetComponent<iEnemyScriptC>().dieFunction();
+            }
+            else if (other.gameObject.transform.parent.GetComponent<BossLevel2>())
+            {
+                other.gameObject.transform.parent.GetComponent<BossLevel2>().dieFunction();
+            }
 			jumpFunction();
 		}
 		else if(other.gameObject.tag == "killEnemyTag") {
