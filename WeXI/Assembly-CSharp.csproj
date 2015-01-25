@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\BulletScriptC.cs" />
      <Compile Include="Assets\Scripts\IEnemyScriptC1.cs" />
      <Compile Include="Assets\Scripts\IEnemyScriptC2.cs" />
+     <Compile Include="Assets\Scripts\Menu_Controller.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\destroyTimed.cs" />
      <Compile Include="Assets\Scripts\enemyTrigger.cs" />
