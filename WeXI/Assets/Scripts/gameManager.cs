@@ -14,7 +14,7 @@ public class gameManager : MonoBehaviour {
 	private const int STATE_DIE = 1;
 	private const int STATE_WIN = 2;
 	private const int STATE_MENU = 3;
-
+	private const int STATE_CREDITS = 4;
 	
 	// Use this for initialization
 	void Start () {
@@ -61,7 +61,9 @@ public class gameManager : MonoBehaviour {
 		case STATE_MENU:
 			
 			break;
+		case STATE_CREDITS:
 			
+			break;			
 		}
 		
 	}
