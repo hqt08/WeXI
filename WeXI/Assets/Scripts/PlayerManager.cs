@@ -62,7 +62,7 @@ public class PlayerManager : MonoBehaviour {
 				jumpFunction();
 			}
 
-			if(rigidbody2D.velocity.y < -15.0f)
+			if(rigidbody2D.velocity.y < -30.0f)
 			{
 				Debug.Log("DIE Reason : Fall off");
 				StartCoroutine( dieFunction());
@@ -110,7 +110,7 @@ public class PlayerManager : MonoBehaviour {
 			jumpFunction();
 		}
 		else if(other.gameObject.tag == "killEnemyTag") {
-			if (other.gameObject.transform.parent.transform.rotation.z < 0.2) {
+			if (other.gameObject.transform.parent.transform.rotation.z < 30) {
 				Debug.Log(other.gameObject.transform.parent.transform.rotation.z);
 				other.gameObject.transform.parent.GetComponent<IEnemyScriptC2>().dieFunction();
 				jumpFunction();
