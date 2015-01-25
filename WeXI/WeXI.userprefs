@@ -1,7 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\enemyTrigger.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/gameManager.cs">
     <Files>
+<<<<<<< HEAD
+      <File FileName="Assets/Scripts/gameManager.cs" Line="86" Column="35" />
+      <File FileName="Assets/Scripts/PlayerManager.cs" Line="14" Column="2" />
+=======
       <File FileName="Assets\Scripts\Menu_Controller.cs" Line="64" Column="3" />
       <File FileName="Assets\Scripts\enemyTrigger.cs" Line="6" Column="39" />
       <File FileName="Assets\Scripts\PlayerManager.cs" Line="21" Column="73" />
@@ -9,6 +13,7 @@
       <File FileName="Assets\Scripts\iEnemyScriptC.cs" Line="110" Column="3" />
       <File FileName="Assets\Scripts\AudioManager.cs" Line="7" Column="31" />
       <File FileName="Assets\Scripts\IEnemyScriptC2.cs" Line="29" Column="3" />
+>>>>>>> 1fe0d5295cbc50d8a635c617f00415ffbf88cd85
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
