@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Bomb.cs" />
      <Compile Include="Assets\Scripts\BossLevel2.cs" />
      <Compile Include="Assets\Scripts\BulletScriptC.cs" />
+     <Compile Include="Assets\Scripts\GlobalStats.cs" />
      <Compile Include="Assets\Scripts\IEnemyScriptC1.cs" />
      <Compile Include="Assets\Scripts\IEnemyScriptC2.cs" />
      <Compile Include="Assets\Scripts\Menu_Controller.cs" />
