@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour {
 	public AudioSource push;
 	public AudioSource hit;
 	public AudioSource die;
+	public AudioSource win;
 	private gameManager manager;
 
 	// Use this for initialization
