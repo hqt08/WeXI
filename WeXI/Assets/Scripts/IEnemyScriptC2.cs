@@ -17,14 +17,14 @@ public class IEnemyScriptC2 : MonoBehaviour {
 
 	public void triggerEnemy()
 	{
-		iTween.ScaleBy(gameObject, iTween.Hash("x", 4, "y", 5, "time", 0.7f));
+		iTween.ScaleBy(gameObject, iTween.Hash("x", 3, "y", 3, "time", 0.7f));
 		iTween.MoveTo(gameObject,iTween.Hash("y",transform.position.y + height, "time", 0.7f, "easetype",iTween.EaseType.linear,"oncomplete","starthammering"));
 	}
 
 	public void starthammering()
 	{
 		Debug.Log("hammer");
-		iTween.RotateBy(gameObject, iTween.Hash("z", 0.3f, "time", 0.3f, "easetype", iTween.EaseType.easeInQuad, "looptype", iTween.LoopType.pingPong));
+		iTween.RotateBy(gameObject, iTween.Hash("z", 0.3f, "time", 0.5f, "easetype", iTween.EaseType.easeInQuad, "looptype", iTween.LoopType.pingPong));
 	}
 
 	public void dieFunction()

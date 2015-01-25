@@ -35,4 +35,8 @@ public class gameManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	public void win() {
+		Debug.Log("You Win!!!");
+	}
 }
