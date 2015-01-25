@@ -65,7 +65,7 @@ public class PlayerManager : MonoBehaviour {
 				jumpFunction();
 			}
 
-			if(rigidbody2D.velocity.y < -30.0f)
+			if(rigidbody2D.velocity.y < -15.0f)
 			{
 				Debug.Log("DIE Reason : Fall off");
 				StartCoroutine( dieFunction());
@@ -99,15 +99,19 @@ public class PlayerManager : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other)
 	{
 		isAllowedToJump = true;
+//		Debug.Log(other.gameObject.name + " enter");
 	}
 
 	void OnCollisionExit2D(Collision2D other)
 	{
 		isAllowedToJump = false;
+//		Debug.Log(other.gameObject.name + " exit");
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
+//		Debug.Log("trigger");
 		if(other.gameObject.tag == "jumpEnemyTag")
 		{
             if (other.gameObject.transform.parent.GetComponent<iEnemyScriptC>())
