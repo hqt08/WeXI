@@ -37,7 +37,7 @@ public class Menu_Controller : MonoBehaviour {
 		} 
 		else if (obj.tag == "Credits") 
 		{
-			//Application.LoadLevel("");
+			Application.LoadLevel("Credits");
 		}
 	}
 
