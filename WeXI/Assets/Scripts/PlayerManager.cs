@@ -65,7 +65,7 @@ public class PlayerManager : MonoBehaviour {
 				jumpFunction();
 			}
 
-			if(rigidbody2D.velocity.y < -15.0f)
+			if(rigidbody2D.velocity.y < -30.0f)
 			{
 				Debug.Log("DIE Reason : Fall off");
 				StartCoroutine( dieFunction());
@@ -91,6 +91,7 @@ public class PlayerManager : MonoBehaviour {
 		if (!audio.die.isPlaying)
 			audio.die.Play ();
 		yield return new WaitForSeconds(.5f);
+		GlobalStats.score = 0;
 		Application.LoadLevel(Application.loadedLevelName);
 
 	}
