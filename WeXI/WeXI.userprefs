@@ -5,7 +5,7 @@
       <File FileName="Assets\Scripts\Menu_Controller.cs" Line="64" Column="3" />
       <File FileName="Assets\Scripts\enemyTrigger.cs" Line="6" Column="39" />
       <File FileName="Assets\Scripts\PlayerManager.cs" Line="21" Column="73" />
-      <File FileName="Assets\Scripts\gameManager.cs" Line="76" Column="3" />
+      <File FileName="Assets\Scripts\gameManager.cs" Line="91" Column="3" />
       <File FileName="Assets\Scripts\iEnemyScriptC.cs" Line="110" Column="3" />
       <File FileName="Assets\Scripts\AudioManager.cs" Line="7" Column="31" />
       <File FileName="Assets\Scripts\IEnemyScriptC2.cs" Line="29" Column="3" />
