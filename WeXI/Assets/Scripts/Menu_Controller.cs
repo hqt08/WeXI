@@ -25,7 +25,7 @@ public class Menu_Controller : MonoBehaviour {
 		print ("OnClickButton");
 		if (obj.tag == "Abstract") 
 		{
-			//Application.LoadLevel("");
+			Application.LoadLevel("Abstract");
 		} 
 		else if (obj.tag == "Chapter1") 
 		{
