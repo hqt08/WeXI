@@ -7,6 +7,9 @@ public class iEnemyScriptC : MonoBehaviour {
 	public GameObject bullet;
 	public float shootDelay;
 	private GameObject player;
+	private gameManager gameManager;
+	private AudioManager audio;
+	private bool hasPlayed;
 
 	public enum Direction{
 		Left,
@@ -31,8 +34,11 @@ public class iEnemyScriptC : MonoBehaviour {
 	void Start () {
 
 		player = GameObject.FindGameObjectWithTag("Player");
+		gameManager = GameObject.Find("Game Manager").GetComponent<gameManager>();
 		isFirstBulletShot = false;
 		originalScale = bullet.transform.localScale;
+		audio = GameObject.Find("Game Manager").GetComponent<AudioManager>();
+		hasPlayed = false;
 	}
 
 	public void triggerEnemy()
@@ -99,6 +105,13 @@ public class iEnemyScriptC : MonoBehaviour {
 
 	public void dieFunction()
 	{
+		// Increment score
+		gameManager.increaseScore(10);
+		if (!hasPlayed) {
+			audio.addScore.Play();
+			hasPlayed = true;
+		}
+		// Die animation for small "i"
 		iTween.ScaleTo(gameObject,iTween.Hash("scale",new Vector3(0.01f,0.01f,0.01f),"time",1.0f,"oncomplete","destroyTheObject"));
 	}
 

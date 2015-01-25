@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour {
 	public int gameState;
-	public int score;
+	//public int score;
 	public Text scoreText;
 	private AudioManager audio;
 	private bool hasPlayed;
@@ -14,13 +14,11 @@ public class gameManager : MonoBehaviour {
 	private const int STATE_DIE = 1;
 	private const int STATE_WIN = 2;
 	private const int STATE_MENU = 3;
-
+	private const int STATE_CREDITS = 4;
 	
 	// Use this for initialization
 	void Start () {
 		gameState = STATE_GAME;
-		score = 0;
-
 		audio = GameObject.Find("Game Manager").GetComponent<AudioManager>();
 		hasPlayed = false;
 		won = false;
@@ -29,9 +27,8 @@ public class gameManager : MonoBehaviour {
 	//Can be called from any script to increase the score and update it inside the unity GUI...
 	public void increaseScore(int tempScore)
 	{
-		score += tempScore;
-		scoreText.text = "SCORE : "+score;
-		
+		GlobalStats.score += tempScore;
+		scoreText.text = "SCORE : "+ GlobalStats.score;
 	}
 	
 	public void setGameState(int state) {
@@ -61,13 +58,15 @@ public class gameManager : MonoBehaviour {
 		case STATE_MENU:
 			
 			break;
+		case STATE_CREDITS:
 			
+			break;			
 		}
 		
 	}
 	
 	void renderScore(){
-		scoreText.text = "SCORE : "+score;
+		scoreText.text = "SCORE : "+ GlobalStats.score;
 	}
 
 	public void win() {

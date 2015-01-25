@@ -32,6 +32,9 @@ public class PlayerManager : MonoBehaviour {
 				iTween.MoveTo(gameObject,iTween.Hash("delay",0.5f,"x",transform.position.x - 2.0f,"y",transform.position.y + 3.0f,"time",1.0f,"easetype",iTween.EaseType.linear,"oncomplete","giveControl"));
 			else if(Application.loadedLevelName == "Scene2")
 				iTween.MoveTo(gameObject,iTween.Hash("delay",0.5f,"x",transform.position.x - 2.0f,"y",transform.position.y + 3.0f,"time",1.0f,"easetype",iTween.EaseType.easeOutSine,"oncomplete","giveControl"));
+			else if(Application.loadedLevelName == "Credits")
+				iTween.MoveTo(gameObject,iTween.Hash("delay",0.5f,"x",transform.position.x + 2.0f,"y",transform.position.y + 3.0f,"time",1.0f,"easetype",iTween.EaseType.easeOutSine,"oncomplete","giveControl"));
+
 		}
 		else
 		{
@@ -62,7 +65,7 @@ public class PlayerManager : MonoBehaviour {
 				jumpFunction();
 			}
 
-			if(rigidbody2D.velocity.y < -15.0f)
+			if(rigidbody2D.velocity.y < -30.0f)
 			{
 				Debug.Log("DIE Reason : Fall off");
 				StartCoroutine( dieFunction());
@@ -88,6 +91,7 @@ public class PlayerManager : MonoBehaviour {
 		if (!audio.die.isPlaying)
 			audio.die.Play ();
 		yield return new WaitForSeconds(.5f);
+		GlobalStats.score = 0;
 		Application.LoadLevel(Application.loadedLevelName);
 
 	}

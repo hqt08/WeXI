@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour {
 	public AudioSource hit;
 	public AudioSource die;
 	public AudioSource win;
+	public AudioSource addScore;
 	private gameManager manager;
 
 	// Use this for initialization

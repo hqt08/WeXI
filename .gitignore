@@ -30,3 +30,5 @@ ehthumbs.db
 [Tt]humbs.db 
 WeXI/WeXI-csharp.sln
 WeXI/WeXI.sln
+WeXI/Assets/Scenes/Scene1_change.unity
+WeXI/Assets/Scripts/PlayerManager.cs
