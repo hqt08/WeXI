@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 20cd556459ba3e948a39e28cf022027b
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Level2_Text14_0
+    21300002: Level2_Text14_1
+    21300004: Level2_Text14_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,13 +28,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +45,36 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Level2_Text14_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1154
+        height: 115
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Level2_Text14_1
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 0
+        width: 822
+        height: 115
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Level2_Text14_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 930
+        height: 115
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

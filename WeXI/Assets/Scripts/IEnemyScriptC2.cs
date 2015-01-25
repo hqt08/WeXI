@@ -27,6 +27,12 @@ public class IEnemyScriptC2 : MonoBehaviour {
 		iTween.RotateBy(gameObject, iTween.Hash("z", 0.3f, "time", 0.3f, "easetype", iTween.EaseType.easeInQuad, "looptype", iTween.LoopType.pingPong));
 	}
 
+	public void dieFunction()
+	{
+		Debug.Log("Boss Defeated");
+		iTween.ScaleTo(gameObject,iTween.Hash("scale",new Vector3(0.01f,0.01f,0.01f),"time",0.5f,"oncomplete","destroyTheObject"));
+	}
+
 	void destroyTheObject()
 	{
 		Destroy(gameObject);
