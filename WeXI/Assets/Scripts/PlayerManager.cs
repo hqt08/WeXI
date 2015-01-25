@@ -106,6 +106,12 @@ public class PlayerManager : MonoBehaviour {
 //		Debug.Log(other.gameObject.name + " enter");
 	}
 
+	void OnCollisionStay2D(Collision2D other)
+	{
+		isAllowedToJump = true;
+//		Debug.Log(other.gameObject.name + " stay");
+	}
+
 	void OnCollisionExit2D(Collision2D other)
 	{
 		isAllowedToJump = false;
