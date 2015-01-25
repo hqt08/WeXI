@@ -88,6 +88,7 @@ public class PlayerManager : MonoBehaviour {
 		if (!audio.die.isPlaying)
 			audio.die.Play ();
 		yield return new WaitForSeconds(.5f);
+		GlobalStats.score = 0;
 		Application.LoadLevel(Application.loadedLevelName);
 
 	}
