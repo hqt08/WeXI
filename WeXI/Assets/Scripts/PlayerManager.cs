@@ -67,8 +67,12 @@ public class PlayerManager : MonoBehaviour {
 
 			if(rigidbody2D.velocity.y < -15.0f)
 			{
-				Debug.Log("DIE Reason : Fall off");
-				StartCoroutine( dieFunction());
+				if (Application.loadedLevelName == "Credits") {
+					Application.LoadLevel("Menu");
+				} else {
+					Debug.Log("DIE Reason : Fall off");
+					StartCoroutine( dieFunction());
+				}
 			}
 
 
