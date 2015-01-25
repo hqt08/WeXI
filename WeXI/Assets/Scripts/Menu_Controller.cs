@@ -25,19 +25,19 @@ public class Menu_Controller : MonoBehaviour {
 		print ("OnClickButton");
 		if (obj.tag == "Abstract") 
 		{
-			Application.LoadLevel("Abstract");
+			StartCoroutine(LoadScene("Abstract"));
 		} 
 		else if (obj.tag == "Chapter1") 
 		{
-			Application.LoadLevel("Scene1");
+			StartCoroutine(LoadScene("Scene1"));
 		} 
 		else if (obj.tag == "Chapter2") 
 		{
-			Application.LoadLevel("Scene2");
+			StartCoroutine(LoadScene("Scene2"));
 		} 
 		else if (obj.tag == "Credits") 
 		{
-			Application.LoadLevel("Credits");
+			StartCoroutine(LoadScene("Credits"));
 		}
 	}
 
@@ -79,5 +79,12 @@ public class Menu_Controller : MonoBehaviour {
 		{
 			sr_Buttons[3].sprite = sprites[3];
 		}
+	}
+
+	IEnumerator LoadScene(string scene) {
+		yield return new WaitForSeconds(0.5f);
+		GameObject.Find("Page").animation.Play("page-flip");
+		yield return new WaitForSeconds(0.8f);
+		Application.LoadLevel(scene);
 	}
 }
