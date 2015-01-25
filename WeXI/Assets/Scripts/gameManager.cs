@@ -46,5 +46,12 @@ public class gameManager : MonoBehaviour {
 			audio.win.Play ();
 			hasPlayed = true;
 		}
+		GameObject.Find("PageFlipper").animation.Play("page-flip");
+		StartCoroutine("LoadNextLevel");
+	}
+
+	IEnumerator LoadNextLevel() {
+		yield return new WaitForSeconds(2f);
+		Application.LoadLevel("Scene2");
 	}
 }
