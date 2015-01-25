@@ -10,9 +10,13 @@ public class BulletScriptC : MonoBehaviour {
 
 	public bool isGrowingBullet;
 	public Vector3 growScale;
+	private AudioManager audio;
+	private bool hasPlayed;
+
 	// Use this for initialization
 	void Start () {
-
+		audio = GameObject.Find("Game Manager").GetComponent<AudioManager>();
+		hasPlayed = false;
 		if(isGrowingBullet)
 		{
 			iTween.ScaleTo(gameObject,iTween.Hash("scale",growScale,"time",3.0f));
@@ -27,6 +31,11 @@ public class BulletScriptC : MonoBehaviour {
 		if(direction == -1 || direction == 1)
 		{
 			transform.Translate(new Vector3(direction,0,0) * speedOfBullet * Time.deltaTime);
+			if(!hasPlayed){
+				audio.smallAttack.Play();
+				hasPlayed = true;
+			}
+
 		}
 		else if(direction == 0)
 		{

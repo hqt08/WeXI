@@ -77,6 +77,8 @@ public class PlayerManager : MonoBehaviour {
 	{
 		rigidbody2D.velocity = Vector2.zero;
 		rigidbody2D.AddForce(new Vector2(0,1) * jumpForce);
+		if (!audio.jump.isPlaying)
+			audio.jump.Play();
 	}
 
 	IEnumerator dieFunction()
