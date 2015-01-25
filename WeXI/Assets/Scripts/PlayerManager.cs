@@ -109,6 +109,13 @@ public class PlayerManager : MonoBehaviour {
 			other.gameObject.transform.parent.GetComponent<iEnemyScriptC>().dieFunction();
 			jumpFunction();
 		}
+		else if(other.gameObject.tag == "killEnemyTag") {
+			if (other.gameObject.transform.parent.transform.rotation.z < 0.2) {
+				Debug.Log(other.gameObject.transform.parent.transform.rotation.z);
+				other.gameObject.transform.parent.GetComponent<IEnemyScriptC2>().dieFunction();
+				jumpFunction();
+			}
+		}
 		else if(other.gameObject.tag == "killTag")
 		{
 			Debug.Log("DIE Reason : Kill Tag");
