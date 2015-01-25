@@ -55,7 +55,6 @@
      <Compile Include="Assets\Scripts\enemyTrigger.cs" />
      <Compile Include="Assets\Scripts\gameManager.cs" />
      <Compile Include="Assets\Scripts\iEnemyScriptC.cs" />
-     <Compile Include="Assets\winTrigger.cs" />
      <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
