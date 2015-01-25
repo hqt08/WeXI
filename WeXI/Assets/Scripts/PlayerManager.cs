@@ -62,7 +62,7 @@ public class PlayerManager : MonoBehaviour {
 				jumpFunction();
 			}
 
-			if(rigidbody2D.velocity.y < -30.0f)
+			if(rigidbody2D.velocity.y < -15.0f)
 			{
 				Debug.Log("DIE Reason : Fall off");
 				StartCoroutine( dieFunction());
