@@ -4,6 +4,7 @@ using System.Collections;
 public class IEnemyScriptC2 : MonoBehaviour {
 
 	public float height;
+	bool hit = false;
 
 	// Use this for initialization
 	void Start () {
@@ -12,7 +13,14 @@ public class IEnemyScriptC2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+		if(gameObject.transform.localRotation.z >0.5f && hit==false)
+		{
+			hit = true;
+			audio.Play();
+		}
+		else if(gameObject.transform.localRotation.z <=0.5f && hit==true)
+			hit = false;
 	}
 
 	public void triggerEnemy()
