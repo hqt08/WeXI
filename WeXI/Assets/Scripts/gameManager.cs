@@ -67,9 +67,12 @@ public class gameManager : MonoBehaviour {
 			endGame();	
 			break;
 		case STATE_WIN:
-			finalScoreText.color = Color.green;
-			endGame();
-			break;
+			if(Application.loadedLevelName == "Level2")
+			{
+				finalScoreText.color = Color.green;
+				endGame();
+				break;
+			}
 		case STATE_MENU:
 			
 			break;
