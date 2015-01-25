@@ -6,12 +6,16 @@ public class gameManager : MonoBehaviour {
 	public int gameState;
 	public int score;
 	public Text scoreText;
+	private AudioManager audio;
+	private bool hasPlayed;
 	
 	// Use this for initialization
 	void Start () {
 		gameState = 0;
 		score = 0;
 		scoreText.text = "SCORE : "+score;
+		audio = GameObject.Find("Game Manager").GetComponent<AudioManager>();
+		hasPlayed = false;
 		
 	}
 	
@@ -38,5 +42,9 @@ public class gameManager : MonoBehaviour {
 
 	public void win() {
 		Debug.Log("You Win!!!");
+		if(!hasPlayed){
+			audio.win.Play ();
+			hasPlayed = true;
+		}
 	}
 }
