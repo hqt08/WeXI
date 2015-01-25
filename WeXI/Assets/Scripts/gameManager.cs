@@ -15,6 +15,12 @@ public class gameManager : MonoBehaviour {
 	private const int STATE_WIN = 2;
 	private const int STATE_MENU = 3;
 	private const int STATE_CREDITS = 4;
+
+	//endgame stuff
+	public Text finalScoreText;
+	public Image endPanel;
+	public Button playAgain;
+	public Button mainMenu;
 	
 	// Use this for initialization
 	void Start () {
@@ -22,6 +28,14 @@ public class gameManager : MonoBehaviour {
 		audio = GameObject.Find("Game Manager").GetComponent<AudioManager>();
 		hasPlayed = false;
 		won = false;
+	
+		endPanel.gameObject.SetActive(false);
+		finalScoreText.enabled = false;
+		playAgain.gameObject.SetActive(false);
+		mainMenu.gameObject.SetActive(false);
+
+		playAgain.onClick.AddListener(() => GameObject.Find("Player").GetComponent<PlayerManager>().SendMessage("restart"));
+		mainMenu.onClick.AddListener(() => GameObject.Find("Player").GetComponent<PlayerManager>().SendMessage("menu"));
 	}
 	
 	//Can be called from any script to increase the score and update it inside the unity GUI...
@@ -50,10 +64,11 @@ public class gameManager : MonoBehaviour {
 			renderScore();
 			break;
 		case STATE_DIE:
-			
+			endGame();	
 			break;
 		case STATE_WIN:
-			
+			finalScoreText.color = Color.green;
+			endGame();
 			break;
 		case STATE_MENU:
 			
@@ -67,6 +82,15 @@ public class gameManager : MonoBehaviour {
 	
 	void renderScore(){
 		scoreText.text = "SCORE : "+ GlobalStats.score;
+	}
+
+	void endGame()
+	{
+		endPanel.gameObject.SetActive(true);
+		playAgain.gameObject.SetActive(true);
+		mainMenu.gameObject.SetActive(true);
+		finalScoreText.text = "YOUR FINAL SCORE IS: "+ GlobalStats.score;
+		finalScoreText.enabled = true;
 	}
 
 	public void win() {

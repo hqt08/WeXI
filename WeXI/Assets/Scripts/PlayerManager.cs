@@ -29,7 +29,9 @@ public class PlayerManager : MonoBehaviour {
 		{
 			//Starting animation of the player which moves the player at start position
 			if(Application.loadedLevelName == "Scene1")
+			{
 				iTween.MoveTo(gameObject,iTween.Hash("delay",0.5f,"x",transform.position.x - 2.0f,"y",transform.position.y + 3.0f,"time",1.0f,"easetype",iTween.EaseType.linear,"oncomplete","giveControl"));
+			}
 			else if(Application.loadedLevelName == "Scene2")
 				iTween.MoveTo(gameObject,iTween.Hash("delay",0.5f,"x",transform.position.x - 2.0f,"y",transform.position.y + 3.0f,"time",1.0f,"easetype",iTween.EaseType.easeOutSine,"oncomplete","giveControl"));
 			else if(Application.loadedLevelName == "Credits")
@@ -88,15 +90,32 @@ public class PlayerManager : MonoBehaviour {
 			audio.jump.Play();
 	}
 
+	void restart()
+	{
+		GlobalStats.score = 0;
+		Time.timeScale = 1;
+		Application.LoadLevel(Application.loadedLevelName);
+	}
+
+	void menu()
+	{
+		GlobalStats.score = 0;
+		Time.timeScale = 1;
+		Application.LoadLevel("Menu");
+	}
+
 	IEnumerator dieFunction()
 	{
 		Debug.Log("Player DIE function called");
-		manager.setGameState (1);
 		if (!audio.die.isPlaying)
 			audio.die.Play ();
 		yield return new WaitForSeconds(.5f);
-		GlobalStats.score = 0;
-		Application.LoadLevel(Application.loadedLevelName);
+		manager.setGameState (1);
+		Time.timeScale = 0;
+		//yield return new WaitForSeconds(.5f);
+		//restart();
+		//GlobalStats.score = 0;
+		//Application.LoadLevel(Application.loadedLevelName);
 
 	}
 
