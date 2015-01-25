@@ -9,12 +9,18 @@ public class gameManager : MonoBehaviour {
 	private AudioManager audio;
 	private bool hasPlayed;
 	private bool won;
+
+	private const int STATE_GAME = 0;
+	private const int STATE_DIE = 1;
+	private const int STATE_WIN = 2;
+	private const int STATE_MENU = 3;
+
 	
 	// Use this for initialization
 	void Start () {
-		gameState = 0;
+		gameState = STATE_GAME;
 		score = 0;
-		scoreText.text = "SCORE : "+score;
+
 		audio = GameObject.Find("Game Manager").GetComponent<AudioManager>();
 		hasPlayed = false;
 		won = false;
@@ -41,6 +47,27 @@ public class gameManager : MonoBehaviour {
 		if (won) {
 			Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, 80, Time.deltaTime * 1);
 		}
+
+		switch (gameState) { 
+		case STATE_GAME:
+			renderScore();
+			break;
+		case STATE_DIE:
+			
+			break;
+		case STATE_WIN:
+			
+			break;
+		case STATE_MENU:
+			
+			break;
+			
+		}
+		
+	}
+	
+	void renderScore(){
+		scoreText.text = "SCORE : "+score;
 	}
 
 	public void win() {
@@ -50,6 +77,10 @@ public class gameManager : MonoBehaviour {
 			audio.win.Play ();
 			hasPlayed = true;
 		}
+
+		gameState = STATE_WIN;
+		GameObject.Find("PageFlipper").animation.Play("page-flip");
+
 		StartCoroutine("LoadNextLevel");
 	}
 
