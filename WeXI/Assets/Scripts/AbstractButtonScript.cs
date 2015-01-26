@@ -61,6 +61,8 @@ public class AbstractButtonScript : MonoBehaviour {
 		}
 		else if(name=="Next")
 		{
+			we.GetComponent<Animator>().CrossFade("Abstract_We_Move",0f);
+			I.GetComponent<Animator>().CrossFade("I_Awake",0f);
 			GameObject.Find("AbstractController").GetComponent<AbstractController>().SendMessage("page2");
 			this.GetComponent<SpriteRenderer>().renderer.enabled = false;
 			this.collider2D.enabled = false;
