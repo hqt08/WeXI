@@ -109,6 +109,8 @@ public class PlayerManager : MonoBehaviour {
 		Debug.Log("Player DIE function called");
 		if (!audio.die.isPlaying)
 			audio.die.Play ();
+		dieTigger death = GameObject.Find("we-logo").GetComponent<dieTigger> ();
+		death.death ();
 		yield return new WaitForSeconds(.5f);
 		manager.setGameState (1);
 		Time.timeScale = 0;
@@ -116,7 +118,6 @@ public class PlayerManager : MonoBehaviour {
 		//restart();
 		//GlobalStats.score = 0;
 		//Application.LoadLevel(Application.loadedLevelName);
-
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
