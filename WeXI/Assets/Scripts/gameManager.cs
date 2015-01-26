@@ -29,10 +29,12 @@ public class gameManager : MonoBehaviour {
 		hasPlayed = false;
 		won = false;
 	
+		Time.timeScale = 1;
+
 		endPanel.gameObject.SetActive(false);
 		finalScoreText.enabled = false;
-		playAgain.gameObject.SetActive(false);
-		mainMenu.gameObject.SetActive(false);
+		playAgain.gameObject.SetActive(true);
+		mainMenu.gameObject.SetActive(true);
 
 		playAgain.onClick.AddListener(() => GameObject.Find("Player").GetComponent<PlayerManager>().SendMessage("restart"));
 		mainMenu.onClick.AddListener(() => GameObject.Find("Player").GetComponent<PlayerManager>().SendMessage("menu"));
@@ -71,13 +73,11 @@ public class gameManager : MonoBehaviour {
 			endGame();
 			break;
 		case STATE_MENU:
-			
 			break;
 		case STATE_CREDITS:
 			
 			break;			
 		}
-		
 	}
 	
 	void renderScore(){
