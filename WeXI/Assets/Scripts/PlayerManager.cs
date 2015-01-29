@@ -11,11 +11,13 @@ public class PlayerManager : MonoBehaviour {
 	private bool hasControl;
 	private AudioManager audio;
 
+    public bool isDied;
 
 	public bool isTest;
 	// Use this for initialization
 	void Start () {
 
+        isDied = false;
 		hasControl = false;
 		isAllowedToJump = true;
 		manager = GameObject.Find("Game Manager").GetComponent<gameManager>();
@@ -67,12 +69,13 @@ public class PlayerManager : MonoBehaviour {
 				jumpFunction();
 			}
 
-			if(rigidbody2D.velocity.y < -15.0f)
+			if(rigidbody2D.velocity.y < -15.0f && isDied == false)
 			{
 				if (Application.loadedLevelName == "Credits") {
 					Application.LoadLevel("Menu");
 				} else {
 					Debug.Log("DIE Reason : Fall off");
+                    isDied = true;
 					StartCoroutine( dieFunction());
 				}
 			}
